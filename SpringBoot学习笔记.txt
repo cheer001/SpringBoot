@@ -55,3 +55,11 @@ Spring boot 全局配置文件作用:
 		如果找到多个相同类型的组件,再将属性名作为组件的Id去容器中查找
 	@RunWith(SpringRunner.class)
 		在当前测试类获取所有组件
+	在pom.xml文件中
+		<!--导入配置文件处理器,在编写配置文件时工具会给出相关提示-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+	
