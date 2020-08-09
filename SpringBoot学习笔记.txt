@@ -1,0 +1,27 @@
+
+Spring boot 底层依赖架构分析 pom.xml中的具体依赖:
+	spring-boot-starter-parent  继承 spring-boot-dependencies
+	spring-boot-dependencies 里面定义了很多组件版本号,我们引用对应依赖时,
+	 不需要写<version>标签
+    spring-boot-starter-web : 构建web项目 ,例如:Tomcat,springmvc
+    spring-boot-starter : 它是SpringBoot的场景启动器,它针对不同的场景定义了很多不同的场景启动器
+     你的项目需要使用那些场景启动器,则直接依赖对应的启动器就可以了
+
+Spring boot 底层源码架构分析 引导类注解的具体实现:
+	@SpringBootApplication  : 标注在某个类上,说明该类是SpringBoot的引导类,SpringBoot就会运行该类的main方法来启动SpringBoot引用
+		 @SpringBootConfiguration
+			 @Configuration : 它属于SpringBoot底层的一个注解,定义配置类,等价于配置文件
+				  @Component : 添加到spring容器中,标识是一个组件
+		 @EnableAutoConfiguration
+				 @AutoConfigurationPackage : 将引导类所在包及其子包下面的所有组件添加到spring容器中
+				 @Import({AutoConfigurationImportSelector.class}):
+					 1.将所有组件已全类名的方式返回,并且提那家到spring容器中
+					 2.会给容器中导入非常多的自动 配置类(***AutoConfiguration),
+						 就是导入 并配置好很多当前项目中所需要的组件
+						 省去我们手动编写配置然后注入到组件中
+
+		 @ComponentScan : 被 该注解标识的类会被纳入Spring容器进行管理
+Spring boot 核心配置:
+	application.properties
+	application.yml 
+	以上两个文件的后缀不同,语法格式不同,用法一样 都是修改spring boot自动配置的默认值

@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring-boot-01-hello" />
         <module name="spring-boot-01-init-02" />
+        <module name="spring-boot-02-config" />
       </profile>
     </annotationProcessing>
   </component>
@@ -15,6 +16,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="spring-boot-01-hello" options="-parameters" />
       <module name="spring-boot-01-init-02" options="-parameters" />
+      <module name="spring-boot-02-config" options="-parameters" />
     </option>
   </component>
 </project>
