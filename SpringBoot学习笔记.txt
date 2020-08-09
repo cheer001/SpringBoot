@@ -1,4 +1,4 @@
-
+第二章:(SpringBoot入门开发)
 Spring boot 底层依赖架构分析 pom.xml中的具体依赖:
 	spring-boot-starter-parent  继承 spring-boot-dependencies
 	spring-boot-dependencies 里面定义了很多组件版本号,我们引用对应依赖时,
@@ -21,7 +21,33 @@ Spring boot 底层源码架构分析 引导类注解的具体实现:
 						 省去我们手动编写配置然后注入到组件中
 
 		 @ComponentScan : 被 该注解标识的类会被纳入Spring容器进行管理
-Spring boot 核心配置:
-	application.properties
-	application.yml 
+第三章:(SpringBoot核心配置)
+Spring boot 全局配置文件作用:
+	application.properties:
+		server.port=8088
+	application.yml:
+		server:
+			port: 8088
 	以上两个文件的后缀不同,语法格式不同,用法一样 都是修改spring boot自动配置的默认值
+详解YAML语法规则与实操常用语法:
+	key换行后如果要与上一层key同层级,要保持key前面的空格数量一致
+	冒号 空格,然后填写value值
+	字面量
+		数值,布尔,日期, 字符串  
+		字符串如果没有需要像\n \t这样的特殊需求  就不需要加上双引号或单引号去转义
+	对象的语法格式
+		(YAML语法):
+		对象名:
+			属性1: 属性值1
+			属性2: 属性值2
+		(行内写法):
+		对象名: {属性1: 属性值1,属性2: 属性值2}	
+	数组的语法格式
+		(YAML语法):
+		数组名:  
+			- 属性值1  (减号 空格 属性值)
+			- 属性值2
+		(行内写法):
+		数组名:[属性值1,属性值2]
+实操YAML全局配置文件注入值:
+	
